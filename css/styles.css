@@ -47,10 +47,10 @@ body {
 main { width: 100%; max-width: 420px; }
 
 /* ===================================================
-   BRASÃO (o SVG desenhado no topo, acima do título)
+  LOGO DA PASTELARIA
    =================================================== */
 .crest { display: flex; justify-content: center; margin-bottom: 18px; }
-.crest img { width: 108px; height: 108px; object-fit: contain; }
+.crest img { width: 200px; height: 200px; object-fit: contain; }
 
 /* ===================================================
    TÍTULO E SUBTÍTULO
