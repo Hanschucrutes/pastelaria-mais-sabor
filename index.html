@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<!-- viewport-fit=cover permite usar env(safe-area-inset-*) no CSS,
+     pra não ficar conteúdo escondido atrás do notch do celular -->
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Pastelaria Mais Sabor</title>
+
+<!-- Carrega as fontes do Google Fonts:
+     Fraunces (serifada, usada no título) e Inter (usada no resto do texto) -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+<!-- Todo o visual (cores, espaçamento, layout) está em css/styles.css -->
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+<main>
+
+  <!-- LOGO REAL da pastelaria -->
+  <div class="crest">
+    <img src="/img/pastelaria mais sabor.png" alt="Pastelaria Mais Sabor">
+  </div>
+
+  <!-- NOME E SLOGAN -->
+  <h1>Pastelaria Mais Sabor</h1>
+  <p class="tagline">O melhor pastel do seu jeito — pastéis crocantes na hora e açaí cremoso.</p>
+    <span class="delivery-badge">Somente delivery</span>
+
+  <!-- LINHA DECORATIVA: uma onda em SVG só pra separar visualmente
+       o cabeçalho da lista de links -->
+  <svg class="divider" viewBox="0 0 400 14" preserveAspectRatio="none">
+    <path d="M0 7 Q 10 0, 20 7 T 40 7 T 60 7 T 80 7 T 100 7 T 120 7 T 140 7 T 160 7 T 180 7 T 200 7 T 220 7 T 240 7 T 260 7 T 280 7 T 300 7 T 320 7 T 340 7 T 360 7 T 380 7 T 400 7"/>
+  </svg>
+
+  <!-- LISTA DE LINKS: cada <a class="link"> é um botão clicável.
+       Estrutura de cada um: ícone SVG + título + descrição curta.
+       target="_blank" abre em nova aba; rel="noopener" é uma boa
+       prática de segurança pra links que abrem em nova aba. -->
+  <nav>
+
+    <!-- Link do WhatsApp. Troque o número em "wa.me/55..." pelo real
+         (formato: 55 + DDD + número, sem espaços ou símbolos) -->
+    <a class="link" href="https://wa.me/5512991082949" target="_blank" rel="noopener">
+      <svg class="icon" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2Zm0 18a8 8 0 0 1-4.1-1.1l-.3-.2-3.1.8.8-3-.2-.3A8 8 0 1 1 12 20Zm4.4-5.9c-.2-.1-1.4-.7-1.6-.8-.2-.1-.4-.1-.5.1-.2.2-.6.8-.8 1-.1.1-.3.2-.5.1-.2-.1-1-.4-1.9-1.2-.7-.6-1.2-1.4-1.3-1.6-.1-.2 0-.4.1-.5l.4-.4c.1-.1.2-.3.2-.4.1-.1 0-.3 0-.4-.1-.1-.5-1.3-.7-1.8-.2-.4-.4-.4-.5-.4h-.5c-.2 0-.4.1-.6.3-.2.2-.8.8-.8 1.9s.8 2.2.9 2.4c.1.2 1.6 2.5 4 3.5.5.2.9.4 1.3.5.5.2 1 .1 1.4.1.4-.1 1.4-.6 1.6-1.1.2-.5.2-1 .1-1.1-.1-.1-.2-.1-.4-.2Z"/></svg>
+      <span class="label">
+        <span class="title">Pedir pelo WhatsApp</span>
+        <span class="sub">Resposta rápida para o seu pedido</span>
+      </span>
+    </a>
+
+    <!-- GRUPO DE ENTREGA: iFood e 99Food lado a lado, dentro da mesma
+         div (.delivery-group). Troque os href pelas suas lojas reais. -->
+    <div class="delivery-group">
+      <a class="link delivery" href="https://www.ifood.com.br/delivery/sao-jose-dos-campos-sp/pastelaria-mais-sabor-jardim-santa-ines-ii/e49c2b07-dbb7-4ea0-aac6-921976b373dc?UTM_Medium=share" target="_blank" rel="noopener">
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M4 9h16l-1.2 9.2a2 2 0 0 1-2 1.8H7.2a2 2 0 0 1-2-1.8L4 9Z"/><path d="M8 9a4 4 0 0 1 8 0"/></svg>
+        <span class="label">
+          <span class="title">iFood</span>
+        </span>
+      </a>
+      <a class="link delivery" href="https://oia.99app.com/dlp9/eGnG2Z?share_media=WHATSAPP" target="_blank" rel="noopener">
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M4 9h16l-1.2 9.2a2 2 0 0 1-2 1.8H7.2a2 2 0 0 1-2-1.8L4 9Z"/><path d="M8 9a4 4 0 0 1 8 0"/></svg>
+        <span class="label">
+          <span class="title">99Food</span>
+        </span>
+      </a>
+    </div>
+
+    <!-- Link do cardápio -->
+    <a class="link" href="cardapio.html">
+      <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M6 3h9l3 3v15H6V3Z"/><path d="M9 9h6M9 13h6M9 17h4"/></svg>
+      <span class="label">
+        <span class="title">Ver cardápio</span>
+        <span class="sub">Sabores, tamanhos e preços</span>
+      </span>
+    </a>
+
+    <!-- Link do Instagram -->
+    <a class="link" href="https://www.instagram.com/pastelariamsabor?stkn=MXN4c2FpdWNnOWhhdQ==" target="_blank" rel="noopener">
+      <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3.5" y="3.5" width="17" height="17" rx="4.5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="0.8" fill="currentColor" stroke="none"/></svg>
+      <span class="label">
+        <span class="title">Instagram</span>
+        <span class="sub">Novidades e bastidores</span>
+      </span>
+    </a>
+  </nav>
+
+  <!-- RODAPÉ -->
+   <footer>
+    Pastelaria Mais Sabor · São José dos Campos, SP
+  </footer>
+</main>
+
+<!-- Sem funcionalidades em JS por enquanto — o arquivo só existe
+     como espaço reservado (ver js/script.js) -->
+<script src="js/script.js"></script>
+</body>
+</html>

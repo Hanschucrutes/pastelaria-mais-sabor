@@ -1,0 +1,256 @@
+/* ===================================================
+   VARIÁVEIS DE COR (design tokens)
+   Definidas uma vez aqui e usadas em todo o CSS com
+   var(--nome). Trocar a cor da marca é só mudar aqui.
+   =================================================== */
+:root {
+  --gold: #e0a53f;       /* dourado — usado nos ícones e no anel externo do brasão */
+  --gold-soft: #6b4f22;  /* dourado escurecido — usado só na linha decorativa (divider) */
+  --red: #9c2b2b;        /* vermelho da faixa da logo — usado no hover e no link "Açaí" */
+  --bg: #000000;         /* fundo da página (preto levemente quente) */
+  --bg-card: #1a130e;    /* fundo de cada "cartão" de link, um pouco mais claro que o bg */
+  --text: #ccb85e;       /* cor do texto principal (creme) */
+  --text-soft: #beaa86;  /* cor do texto secundário (subtítulos, rodapé) */
+  --line: #3a2c1f;       /* cor da borda fina dos cartões de link */
+
+  box-sizing: border-box;
+  /* "safe-area-inset" evita que o conteúdo fique escondido atrás do
+     notch/barra de status em celulares com tela até a borda */
+  padding-top: env(safe-area-inset-top, 0px);
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+html {
+  scroll-padding-top: env(safe-area-inset-top, 0px);
+  height: 100%;
+}
+
+/* Faz padding/border entrarem na largura do elemento, em vez de somar */
+* { box-sizing: border-box; }
+
+/* ===================================================
+   ESTRUTURA GERAL DA PÁGINA
+   =================================================== */
+body {
+  margin: 0;
+  min-height: 100%;
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Inter', system-ui, sans-serif; /* fonte do corpo do texto */
+  display: flex;
+  justify-content: center; /* centraliza o conteúdo horizontalmente */
+  padding: 48px 20px 60px;
+}
+
+/* A <main> é o "cartão" central da página, com largura máxima
+   para não esticar demais em telas grandes */
+main { width: 100%; max-width: 420px; }
+
+/* ===================================================
+   BRASÃO (o SVG desenhado no topo, acima do título)
+   =================================================== */
+.crest { display: flex; justify-content: center; margin-bottom: 18px; }
+.crest img { width: 108px; height: 108px; object-fit: contain; }
+
+/* ===================================================
+   TÍTULO E SUBTÍTULO
+   =================================================== */
+h1 {
+  font-family: 'Fraunces', serif; /* fonte serifada, dá o toque "sofisticado" */
+  font-weight: 500;
+  font-size: 2rem;
+  line-height: 1.15;
+  text-align: center;
+  margin: 0 0 8px;
+  letter-spacing: -0.01em;
+}
+.tagline {
+  text-align: center;
+  color: var(--text-soft);
+  font-size: 0.95rem;
+  line-height: 1.5;
+  margin: 0 0 28px;
+  padding: 0 8px;
+}
+
+/* Linha ondulada decorativa (o SVG entre a tagline e os botões) */
+.divider { display: block; width: 100%; height: 14px; margin: 0 0 28px; }
+.divider path { fill: none; stroke: var(--gold-soft); stroke-width: 1.4; }
+
+/* ===================================================
+   LISTA DE LINKS (os "botões" tipo Linktree)
+   =================================================== */
+
+/* <nav> empilha os links verticalmente, com espaço entre eles */
+nav { display: flex; flex-direction: column; gap: 12px; }
+
+/* Estilo base de cada link/botão */
+a.link {
+  display: flex;
+  align-items: center;
+  gap: 14px;                       /* espaço entre o ícone e o texto */
+  background: var(--bg-card);
+  border: 1px solid var(--line);
+  border-left: 3px solid var(--gold); /* tarja dourada à esquerda, tipo destaque */
+  border-radius: 4px;
+  padding: 16px 18px;
+  text-decoration: none;           /* tira o sublinhado padrão de link */
+  color: var(--text);
+  transition: transform 0.15s ease, border-color 0.15s ease; /* anima o hover */
+}
+
+/* Ao passar o mouse: desliza um pouco pra direita e a tarja vira vermelha */
+a.link:hover { transform: translateX(2px); border-left-color: var(--red); }
+
+/* Contorno visível ao navegar pelo teclado (acessibilidade) */
+a.link:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
+
+/* Grupo de entrega (iFood + 99Food): os dois links lado a lado,
+   em duas colunas de largura igual, dentro da mesma div */
+.delivery-group {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+/* Nesses dois links específicos não tem subtítulo, então
+   centralizamos o conteúdo em vez de alinhar à esquerda */
+a.link.delivery {
+  justify-content: center;
+  padding: 14px 12px;
+}
+a.link.delivery .title { font-size: 0.92rem; }
+
+/* Variação usada no link "Açaí do dia": tarja e ícone já nascem vermelhos,
+   em vez de dourados, pra diferenciar esse item dos demais */
+a.link.acai { border-left-color: var(--red); }
+.link.acai .icon { color: var(--red); }
+
+/* Ícone (o SVG) dentro de cada link */
+.link .icon { width: 22px; height: 22px; flex-shrink: 0; color: var(--gold); }
+
+/* Bloco de texto (título + descrição) dentro de cada link */
+.link .label { display: flex; flex-direction: column; gap: 2px; }
+.link .title { font-weight: 600; font-size: 1rem; }   /* ex: "Pedir pelo WhatsApp" */
+.link .sub { font-size: 0.82rem; color: var(--text-soft); } /* ex: "Resposta rápida..." */
+
+/* ===================================================
+   RODAPÉ
+   =================================================== */
+/* ===================================================
+   PÁGINA DE CARDÁPIO (cardapio.html)
+   =================================================== */
+
+/* Link de "voltar" no topo da página de cardápio */
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--text-soft);
+  text-decoration: none;
+  font-size: 0.85rem;
+  margin-bottom: 22px;
+}
+.back-link:hover { color: var(--gold); }
+
+/* Cada categoria do cardápio (ex: "Pastéis Salgados", "Açaí") */
+/* Sub-título dentro de uma seção (ex: "Sabores de massa", "Recheios") */
+.subheading {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-soft);
+  margin: 14px 0 8px;
+}
+.subheading:first-child { margin-top: 0; }
+
+/* "Etiquetas" de sabor (massa/recheio), em vez de linha com preço —
+   usadas onde o preço é pela combinação, não por sabor individual */
+.chip-list { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 6px; }
+.chip {
+  background: var(--bg-card);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 6px 13px;
+  font-size: 0.8rem;
+  color: var(--text);
+}
+
+/* Aviso pequeno dentro de uma seção (ex: brinde do combo, prazo de encomenda) */
+.combo-note {
+  font-size: 0.78rem;
+  color: var(--text-soft);
+  margin: 2px 0 10px;
+}
+
+/* Selo "Somente Delivery" no topo da página */
+.delivery-badge {
+  display: block;
+  text-align: center;
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--red);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 5px 14px;
+  width: fit-content;
+  margin: 0 auto 22px;
+}
+
+.menu-section { margin-bottom: 32px; }
+.menu-section h2 {
+  font-family: 'Fraunces', serif;
+  font-weight: 500;
+  font-size: 1.3rem;
+  color: var(--gold);
+  margin: 0 0 4px;
+}
+.menu-section .section-note {
+  font-size: 0.8rem;
+  color: var(--text-soft);
+  margin: 0 0 14px;
+}
+
+/* Uma linha do cardápio: nome do item ---- preço
+   Os "----" são feitos com uma div .dots com borda pontilhada
+   que estica (flex: 1) pra preencher o espaço até o preço */
+.menu-item {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  padding: 7px 0;
+}
+.menu-item .name { font-size: 0.98rem; }
+.menu-item .dots {
+  flex: 1;
+  border-bottom: 1px dotted var(--line);
+  margin-bottom: 4px;
+}
+.menu-item .price {
+  color: var(--gold);
+  font-weight: 600;
+  font-size: 0.95rem;
+  white-space: nowrap;
+}
+
+/* Aviso de "valores de exemplo", igual ao que já existe no rodapé
+   da página principal */
+.menu-note {
+  text-align: center;
+  font-size: 0.78rem;
+  color: var(--text-soft);
+  opacity: 0.75;
+  margin: 12px 0 0;
+}
+
+footer {
+  margin-top: 40px;
+  text-align: center;
+  font-size: 0.78rem;
+  color: var(--text-soft);
+  line-height: 1.6;
+}
+footer .note {
+  margin-top: 6px;
+  opacity: 0.75; /* deixa o aviso "links de exemplo" mais discreto */
+}
