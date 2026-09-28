@@ -4,8 +4,7 @@ Página de link-in-bio e cardápio digital da **Pastelaria Mais Sabor**, feita p
 
 ## 🔗 Demo
 
-- Página principal: 
-- Cardápio: 
+- Página principal: pastelaria-mais-sabor.vercel.app
 
 ## 📂 Estrutura
 
