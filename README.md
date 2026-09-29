@@ -2,13 +2,7 @@
 
 Página de link-in-bio e cardápio digital da **Pastelaria Mais Sabor**, feita para usar na bio do Instagram e do WhatsApp. Delivery apenas, com pedidos por WhatsApp, iFood e 99Food.
 
-## 🔗 Demo
-
-<<<<<<< HEAD
 - Página principal: pastelaria-mais-sabor.vercel.app
-=======
-- Página principal: pastelaria-mais-sabor.vercel.app
->>>>>>> 28880688fcdd0f5a3c9de342ff4a316dcdf9c5e9
 
 ## 📂 Estrutura
 
@@ -49,14 +43,6 @@ O projeto é 100% estático, então funciona em qualquer serviço de hospedagem 
 ## 🎨 Identidade visual
 
 Paleta baseada na logo oficial: fundo preto quente, dourado (`#e0a53f`) e vermelho da faixa (`#9c2b2b`), texto em creme. Cores centralizadas em variáveis CSS no topo de `styles.css`, fáceis de ajustar.
-
-<<<<<<< HEAD
-## 📝 Pendências
-
-- [ ] Trocar o link de "Como chegar" pelo endereço real (Google Maps)
-- [ ] Trocar os links de iFood e 99Food pelos links diretos da loja
-=======
->>>>>>> 28880688fcdd0f5a3c9de342ff4a316dcdf9c5e9
 
 ## 📱 Contato
 
