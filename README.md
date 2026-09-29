@@ -5,8 +5,7 @@ Página de link-in-bio e cardápio digital da **Pastelaria Mais Sabor**, feita p
 ## 🔗 Demo
 
 <<<<<<< HEAD
-- Página principal: https://claude.ai/artifact/GhiKFj97LFDWFTFD4im5Sq
-- Cardápio: https://claude.ai/artifact/UhZafTAvZQ3L7BnDxmcDAr
+- Página principal: pastelaria-mais-sabor.vercel.app
 =======
 - Página principal: pastelaria-mais-sabor.vercel.app
 >>>>>>> 28880688fcdd0f5a3c9de342ff4a316dcdf9c5e9
